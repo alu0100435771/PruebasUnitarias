@@ -6,7 +6,7 @@ class Fraccion
 
   def initialize(numerador, denominador)
     #Controlando que los numeros sean enteros, y que el denominador no sea 0
-    raise ArgumentError, 'El denominador es 0' unless numerador != 0
+    raise ArgumentError, 'El denominador es 0' unless denominador != 0
     raise ArgumentError, 'El denominador no es entero' unless denominador.is_a? Integer
     raise ArgumentError, 'El numerador no es entero' unless numerador.is_a? Integer
    @numerador = numerador

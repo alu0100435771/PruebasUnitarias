@@ -46,5 +46,18 @@ class Test_Fraccion < Test::Unit::TestCase
     r = @a.division(@b) #Nuevo valor al denominador
     assert r.numerador == 2 and r.denominador == 4
   end
-
+   def test_parametros
+    assert_raise( ArgumentError ) do #Probando que el numerador sea un umero
+        Fraccion.new('a', 2)
+    end
+    assert_raise( ArgumentError ) do #Comprobando que el denominador sea un numero
+        Fraccion.new(2, 'b')
+    end
+    assert_raise( ArgumentError ) do #Comprando que los 2 sean numeros
+        Fraccion.new('a', 'b')
+    end
+    assert_raise( ArgumentError ) do #Comprobando que el denominador no sea 0
+        Fraccion.new(2, 0)
+    end
+  end
 end
