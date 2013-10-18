@@ -13,7 +13,7 @@ class Fraccion
     raise ArgumentEirror, 'El numerador no es entero' unless numearador.is_a? Integer
     
   end
-
+   
   def minimizar #Construcción de la fracción
     comunDiv = gcd(numerador, denominador)
     @numerador = @numerador/comunDiv
@@ -24,20 +24,20 @@ class Fraccion
     "#{numerador}/#{denominador}"  
   end
 
-  def suma(operador)
-    resultado = Fraccion.new(@numerador*operador.denominador + @denominador*operador.numerador, @denominador*operador.denominador)
+  def suma(racional)
+    resultado = Fraccion.new(@numerador*racional.denominador + @denominador*racional.numerador, @denominador*racional.denominador)
   end
 
-  def resta(operador)
-    resultado = Fraccion.new(@numerador*operador.denominador - @denominador*operador.numerador, @denominador*operador.denominador)
+  def resta(racional)
+    resultado = Fraccion.new(@numerador*racional.denominador - @denominador*racional.numerador, @denominador*racional.denominador)
   end
 
-  def producto(operador)
-    resultado = Fraccion.new(@numerador*operador.numerador, @denominador*operador.denominador)
+  def producto(racional)
+    resultado = Fraccion.new(@numerador*racional.numerador, @denominador*racional.denominador)
   end
 
-  def division(operador)
-    resultado = Fraccion.new(@numerador*operador.denominador, @denominador*operador.numerador)
+  def division(racional)
+    resultado = Fraccion.new(@numerador*racional.denominador, @denominador*racional.numerador)
   end
 
 end
