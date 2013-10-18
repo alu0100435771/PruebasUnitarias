@@ -1,27 +1,27 @@
-# Implementar en este fichero la clase para crear objetos racionales
-
 require "./gcd.rb"
 
 class Fraccion
 
   attr_accessor :denominador, :numerador
 
-  def initialize
+  def initialize(numerador, denominador)
     #Controlando que los numeros sean enteros, y que el denominador no sea 0
     raise ArgumentError, 'El denominador es 0' unless numerador != 0
     raise ArgumentError, 'El denominador no es entero' unless denominador.is_a? Integer
-    raise ArgumentEirror, 'El numerador no es entero' unless numearador.is_a? Integer
-    
+    raise ArgumentError, 'El numerador no es entero' unless numerador.is_a? Integer
+   @numerador = numerador
+   @denominador = denominador
+   minimizar
   end
-   
+
   def minimizar #Construcción de la fracción
-    comunDiv = gcd(numerador, denominador)
-    @numerador = @numerador/comunDiv
-    @denominador = @denoiminador/comunDiv
+    comunDiv = gcd(numerador, denominador) # Calculando maximo comun divisor
+    @numerador = @numerador / comunDiv # Asignamos los valores de la fraccion mas simplificada
+    @denominador = @denominador / comunDiv
   end
 
   def to_s
-    "#{numerador}/#{denominador}"  
+    "#{@numerador}/#{@denominador}"
   end
 
   def suma(racional)
@@ -45,3 +45,4 @@ class Fraccion
   end
 
 end
+
