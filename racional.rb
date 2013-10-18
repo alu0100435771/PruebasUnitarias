@@ -25,19 +25,23 @@ class Fraccion
   end
 
   def suma(racional)
-    resultado = Fraccion.new(@numerador*racional.denominador + @denominador*racional.numerador, @denominador*racional.denominador)
+    raise ArgumentError, 'No es una fracción' unless racional.is_a? Fraccion #Si no es una fraccion devuelve un error
+    resultado = Fraccion.new(@numerador*racional.denominador + @denominador*racional.numerador, @denominador*racional.denominador) #x/y + w/z = (x*z + y*w)/y*z
   end
 
   def resta(racional)
-    resultado = Fraccion.new(@numerador*racional.denominador - @denominador*racional.numerador, @denominador*racional.denominador)
+    raise ArgumentError, 'No es una fracción' unless racional.is_a? Fraccion
+    resultado = Fraccion.new(@numerador*racional.denominador - @denominador*racional.numerador, @denominador*racional.denominador) #x/y - w/z = (x*z - y*w)/y*z
   end
 
   def producto(racional)
-    resultado = Fraccion.new(@numerador*racional.numerador, @denominador*racional.denominador)
+    raise ArgumentError, 'No es una fracción' unless racional.is_a? Fraccion
+    resultado = Fraccion.new(@numerador*racional.numerador, @denominador*racional.denominador) #x/y * w/z = (x*w)/(y*z)
   end
 
   def division(racional)
-    resultado = Fraccion.new(@numerador*racional.denominador, @denominador*racional.numerador)
+    raise ArgumentError, 'No es una fracción' unless racional.is_a? Fraccion
+    resultado = Fraccion.new(@numerador*racional.denominador, @denominador*racional.numerador) #(z/y) / (x/z) = (x*z)/(w*y)
   end
 
 end
